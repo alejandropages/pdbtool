@@ -68,9 +68,9 @@ Source:
 ```
 7. Append the path to the pdbtool source folder PYTHONPATH and set pdbtool environment variables.
 ```
-	$ export PYTHONPATH=<path-to-pdbtools-repository>:$PYTHONPATH
-    $ export PDBDOWNLOAD=<path-to-pdb-downloads-directory>
-    $ export PDBMIRROR=<path-to-pdb-mirrow-directory>
+    	$ export PYTHONPATH=<path-to-pdbtools-repository>:$PYTHONPATH
+	$ export PDBDOWNLOAD=<path-to-pdb-downloads-directory>
+	$ export PDBMIRROR=<path-to-pdb-mirrow-directory>
 ```
 
     Note: you'll want to include this in your shell's profile as well.
@@ -99,10 +99,6 @@ There are also a few runnable scripts from the pdbtools root directory as well. 
 *	hbcomp.py
 *	tincomp.py
 
-Usage:
+## Disclaimer:
 
-To use pdbtools, there are also some environment variables that you can set to keep downloaded and generated files organized:
-
-*	PISA_PATH		- the path to the download folder for PISA files
-*	PDBDOWNLOAD		- the path to the downloads folder for PDB files
-*	PDBMIRROR		- the path to the mirror folder for PDB files
+This tutorial is a work in progress and as such not every script may be fully functional given the configuration described here. 
