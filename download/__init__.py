@@ -18,7 +18,7 @@ def pathcode_check(value, softcheck=True, active=True, return_stream=False):
         mirror_found = False
         if not os.path.isdir(download_folder):
             os.mkdir(download_folder)
-            sys.stderr('Standard download folder created at %s\n', os.path.abspath(download_folder))
+            sys.stderr.write('Standard download folder created at %s\n' % os.path.abspath(download_folder))
     if mirror_found:
         fpath = os.path.join(mirror_folder,value[1:3],'pdb'+value+os.extsep+'ent'+os.extsep+'gz')
     else:
@@ -35,11 +35,11 @@ def pathcode_check(value, softcheck=True, active=True, return_stream=False):
     else:
         if active:
             pdbfile = urllib.request.urlretrieve('http://www.rcsb.org/pdb/files/'+value.lower()+'.pdb.gz')
-            if pdbfile[1].type == 'text/html':
+            if pdbfile[1].get_content_type() == 'text/html':
                 sys.stderr.write('Failed to retrieve PDB entry '+value+'.  You need to rethink your life.\n')
                 return None
             with open(fpath, 'w') as fout:
-                fin = gzip.open(pdbfile[0])
+                fin = gzip.open(pdbfile[0], 'rt')
                 for line in fin:
                     fout.write(line)
                 fin.close()
