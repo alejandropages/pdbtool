@@ -31,8 +31,8 @@ Source:
 	Notes: Mac used bash by default until MacOS Catalina where it has started using zsh.
 		To figure out what your default shell is, use this command: `$ echo $SHELL`
 		If your shell is ‘bash’ then use `$ ls -a ~` to find either “~/.profile” or “~/.bash_profile”.
-		If you are using zsh, your profile file is either “~/.zprofile”. 
-		whatever be the case, append the above two lines.
+		If you are using zsh, your profile file is “~/.zprofile”. 
+		Whatever be the case, append the above two lines.
 
    Activate your new profile:
 ```	
