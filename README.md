@@ -24,8 +24,6 @@ Source:
 $ brew update
 $ brew install pyenv pyenv-virtualenv
 ```
-Note: verify that you have virtualenv installed by running `$ virtualenv —version`
-	If not, you’ll need to instal using pip: `$ python3 -m pip instal virtualenv`
 
 Source: 
 	[pyenv](https://github.com/pyenv/pyenv)
@@ -34,8 +32,8 @@ Source:
 3. Add two lines to the end of your shell’s profile. 
 
 ```
-eval “$(pyenv init - )”
-eval “$(pyenv virtualenv-init -)”
+eval "$(pyenv init - )"
+eval "$(pyenv virtualenv-init -)"
 ```
 
 Notes: Mac used bash by default until MacOS Catalina where it has started using zsh.
