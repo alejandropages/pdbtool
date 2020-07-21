@@ -1,9 +1,9 @@
 # PDBTOOL
 
 ## Table of contents
-* [General info](#pdbtool-installation-on-macos)
-* [Technologies](#disclaimer)
-* [Setup](#commands)
+* [PDBTOOL installation on MacOS](#pdbtool-installation-on-macos)
+* [disclaimer](#disclaimer)
+* [Commands](#commands)
 
 # PLEASE REPORT ISSUES
 send me and email at apages2@unl.edu with pdbtool in the subject line
