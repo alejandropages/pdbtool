@@ -216,10 +216,6 @@ optional arguments:
 ```
 ### datcontour
 ```
-➜ python -m pdbtool.scripts.datcontour -h
-/Users/apages/.pyenv/versions/pdbtool/bin/python: No module named pdbtool.scripts.datcontour
-
-~ via 🐘 v7.4.6 via pdbtool via 🐍 pdbtool 
 ➜ python -m pdbtool.scripts.datcontur -h 
 usage: datcontur.py [-h] [--sqlpath SQLPATH] [--symmetric] [--dstep DSTEP]
                     [--astep ASTEP] [--tstep TSTEP] [--d1 D1] [--d2 D2]
