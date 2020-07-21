@@ -2,7 +2,7 @@
 
 ## Table of contents
 * [PDBTOOL installation on MacOS](#pdbtool-installation-on-macos)
-* [disclaimer](#disclaimer)
+* [Disclaimer](#disclaimer)
 * [Commands](#commands)
 
 # PLEASE REPORT ISSUES
