@@ -1,3 +1,10 @@
+# PDBTOOL
+
+## Table of contents
+* [General info](#pdbtool-installation-on-macos)
+* [Technologies](#disclaimer)
+* [Setup](#commands)
+
 # PLEASE REPORT ISSUES
 send me and email at apages2@unl.edu with pdbtool in the subject line
 
@@ -47,9 +54,11 @@ $ source ~/<profile-filename>
 ```
 $ pyenv install 3.5.9
 ```
-5. Navigate to where you want the project directory, create the pdbtool virtualenv, and set the python version.
+5. Navigate to the directory where you would like the pdbtool repository.
 ```	
 $ cd <your-installation-directory>
+$ git clone https://github.com/alejandropages/pdbtool.git
+$ cd pdbtool
 $ pyenv local 3.5.9
 $ pyenv virtualenv pdbtool
 ```
@@ -58,56 +67,47 @@ Note: after you run this command, whenever you are in this directory, your pytho
 
 6. Finish setting up pdbtool environment:
 
-* activate pdbtools environment
-* clone alejandropages fork of the pdbtools repository
-* upgrade pip
-* install packages
-
 ```
 $ pyenv activate pdbtools
-$ git clone https://github.com/alejandropages/pdbtool.git
 $ pip install --upgrade pip
-$ pip install scipy==1.4.1 matplotlib==3.0.3
+$ pip install scipy==1.4.1 matplotlib==3.0.3 lsq
 ```
 7. Append the path to the pdbtool source folder PYTHONPATH and set pdbtool environment variables.
 ```
-$ export PYTHONPATH=<path-to-pdbtools-repository>:$PYTHONPATH
+$ export PYTHONPATH=<path-to-installation-directory>:$PYTHONPATH
 $ export PDBDOWNLOAD=<path-to-pdb-downloads-directory>
 $ export PDBMIRROR=<path-to-pdb-mirrow-directory>
 ```
 
-Note: you'll want to include this in your shell's profile as well.
+Note: you'll want to include these in your shell's profile as well.
 
 7. You can now use pdbtool from anywhere in your filesystem using the following command and appending the path to the script you would like to call seperated by dots.
 
 e.g. to call the script sstin.py located at pdbtools/scripts/sstin.py
 
 ```
-$ python -m scripts.sstin  # is your virtualenv activated?
+$ python -m pdbtool.scripts.sstin  # is your virtualenv activated?
 ````
 
 to call the script pdbtools/bbcomp.py
 
 ```
-$ python -m bbcomp
+$ python -m pdbtool.bbcomp
 ```
 
-### A few notes to help get started:
+If you are inside the pdbtool directory, you cannot use the -m flag with the dot sperator. instead you will need to use the path to the file you want run.
 
-Most scripts in pdbtools/scripts are meant to be run directly with the exception of sstin_sqlite.py which is a helper class. 
-You can run these scripts from the command line like any other script and include -h to get information about what the script does and what arguments you need/can include.
-There are also a few runnable scripts from the pdbtools root directory as well. They are:
-	
-*	bbcomp.py
-*	hbcomp.py
-*	tincomp.py
+```
+# from within the pdbtool directory
+$ python scripts/sstin.py
+```
 
 ## Disclaimer:
 
-This tutorial is a work in progress and as such not every script may be fully functional given the configuration described here. Some scripts needed to be updated to python3 from python2 and not every script, function, and class were executed.
+This tutorial is a work in progress and as such not every script may be fully functional given the configuration described here. Some scripts needed to be updated to python3 from python2 and not every script, function, and class were tested.
 
 # Commands:
-
+### acmerge
 ```
 ➜ python -m pdbtool.scripts.acmerge -h                                              
 usage: acmerge.py [-h] [--acletters ACLETTERS] inpath1 inpath2 outpath
@@ -125,6 +125,7 @@ optional arguments:
   --acletters ACLETTERS
                         Letters used to designate multiple conformers.
 ```
+### cellsqueeze
 ```
 ➜ python -m pdbtool.scripts.cellsqueeze -h   
 usage: cellsqueeze.py [-h] [--mrc MRC] [--output-mrc OUTPUT_MRC]
@@ -147,6 +148,7 @@ optional arguments:
                         Output map file
   --cushion CUSHION     Cushion size around the molecule.
 ```
+### contacts
 ```
 ➜ python -m pdbtool.scripts.contacts -h   
 usage: contacts.py [-h] [--Dmax DMAX] inpath
@@ -161,6 +163,7 @@ optional arguments:
   -h, --help   show this help message and exit
   --Dmax DMAX  Maximum contact distance, defaults to 4.0A.
 ```
+### cylinder
 ```
 ➜ python -m pdbtool.scripts.cylinder -h
 usage: cylinder.py [-h] [--Dmin DMIN] [--ranges RANGES] inpath
@@ -180,6 +183,7 @@ optional arguments:
                    55 and 72 to 80 in chain A, and also residues 50 to 55 in
                    chain B.
 ```
+### datcluster
 ```
 ➜ python -m pdbtool.scripts.datcluster -h 
 usage: datcluster.py [-h] [--sqlpath SQLPATH] [--symmetric] [--d1 D1]
@@ -212,6 +216,7 @@ optional arguments:
                         kernel parameters will be used as starting cluster
                         centroids.
 ```
+### datcontour
 ```
 ➜ python -m pdbtool.scripts.datcontour -h
 /Users/apages/.pyenv/versions/pdbtool/bin/python: No module named pdbtool.scripts.datcontour
@@ -248,6 +253,7 @@ optional arguments:
                        be processed by SEQFILTER
   --title TITLE        Title of the figure.
 ```
+### datrefine
 ```
 ➜ python -m pdbtool.scripts.datrefine -h
 usage: datrefine.py [-h] [--sqlpath SQLPATH] [--torshift TORSHIFT]
@@ -265,6 +271,7 @@ optional arguments:
                         Hydrogen bond type.
   --title TITLE         Title of the figure.
 ```
+### hbfilter
 ```
 ➜ python -m pdbtool.scripts.hbfilter -h 
 usage: hbfilter.py [-h] [--sqlpath SQLPATH] [--sqlpisa SQLPISA]
@@ -296,6 +303,7 @@ optional arguments:
   --symmetric           Bonds are chemically symmetric so both directions
                         should be included.
 ```
+### hblist
 ```
 ➜ python -m pdbtool.scripts.hblist -h  
 usage: hblist.py [-h] [--ohmax OHMAX] [--nomax NOMAX] [--dhamin DHAMIN]
@@ -323,6 +331,7 @@ optional arguments:
                         residues 50 to 55 and 72 to 80 in chain A, and also
                         residues 50 to 55 in chain B.
 ```
+### hbpisa
 ```
 ➜ python -m pdbtool.scripts.hbpisa -h
 usage: hbpisa.py [-h] [--sqlpath SQLPATH] [--sqlpisa SQLPISA]
@@ -339,6 +348,7 @@ optional arguments:
                         Hydrogen bond type (mandatory).
   --do-checks           Check the PISA database integrity.
 ```
+### normocc
 ```
 ➜ python -m pdbtool.scripts.normocc -h
 usage: normocc.py [-h] [-f] inpath [outpath]
@@ -357,6 +367,7 @@ optional arguments:
   -f, --force-overwrite
                         Overwrite existing files.
 ```
+### pdbplots
 ```
 ➜ python -m pdbtool.scripts.pdbplots -h
 usage: pdbplots.py [-h] [-p] inpath
@@ -376,6 +387,7 @@ optional arguments:
   -h, --help    show this help message and exit
   -p , --plot   Plotting options.
 ```
+### pdbtricks
 ```
 ➜ python -m pdbtool.scripts.pdbtricks -h
 usage: pdbtricks.py [-h] [-a] [-p] [--resid RESID] [--bvalue-print]
@@ -444,6 +456,7 @@ optional arguments:
                         Sliding sequence window size.
   --rcutoff RCUTOFF     Distance cutoff, defaults to 4A
 ```
+### pisaset
 ```
 ➜ python -m pdbtool.scripts.pisaset -h  
 usage: pisaset.py [-h] [--inpath INPATH] [--sqlpath SQLPATH] [--no-checks]
@@ -458,6 +471,7 @@ optional arguments:
   --sqlpath SQLPATH     Database file
   --no-checks           Do not check the database integrity.
 ```
+### sstin
 ```
 ➜ python -m pdbtool.scripts.sstin -h
 usage: sstin.py [-h] [-p PDB] [-l LIST_FILE] [-d SQLITE_FILE]
@@ -475,6 +489,7 @@ optional arguments:
   -d SQLITE_FILE, --sqlite-file SQLITE_FILE
                         SQLite database to store/retrieve processed results.
 ```
+### tinalign
 ```
 ➜ python -m pdbtool.scripts.tinalign -h
 usage: tinalign.py [-h] [--chids CHIDS] [--spin {x,y,z}] [--swap]
@@ -493,6 +508,7 @@ optional arguments:
   --spin {x,y,z}  Spin around selected axis.
   --swap          Swap similar axis
 ```
+### bbcomp
 ```
 ➜ python -m pdbtool.bbcomp -h       
 usage: bbcomp.py [-h] [-l] [--delta-phi DELTA_PHI] [--delta-psi DELTA_PSI]
@@ -518,6 +534,7 @@ optional arguments:
   --bbout BBOUT         Path to the output PDB file showing backbone
                         differences as B-factors.
 ```
+### hbcomp
 ```
 ➜ python -m pdbtool.hbcomp -h
 usage: hbcomp.py [-h] [--ohmax OHMAX] [--nomax NOMAX] [--dhamin DHAMIN]
@@ -543,6 +560,7 @@ optional arguments:
   --bbout BBOUT         Path to the output PDB file showing backbone
                         differences as B-factors.
 ```
+### tincomp
 ```
 ➜ python -m pdbtool.tincomp -h
 usage: tincomp.py [-h] [--simple-output] model1 model2 segfile
