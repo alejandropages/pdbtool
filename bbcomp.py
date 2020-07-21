@@ -25,7 +25,7 @@ parser.add_argument('--bbout',
                     help='Path to the output PDB file showing backbone differences as B-factors.')
 args = parser.parse_args()
 
-from pdbtool import ReadPDBfile as read_pdb_file
+from .pdbtool import ReadPDBfile as read_pdb_file
 from scipy import degrees, radians, sin, arcsin, sqrt
 from scipy.stats import scoreatpercentile
 

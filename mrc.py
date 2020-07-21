@@ -2,8 +2,8 @@
     MRC module implements I/O, manipulation and analysis of the 
     MRC map file format.
 '''
-from binarrays import read_byte, read_integer, read_float, read_char, read_shortint, read_cints, read_fints, read_shortuint
-from binarrays import write_char, write_integer, write_float, write_byte, write_shortint, write_cint, write_fint, write_shortuint
+from .binarrays import read_byte, read_integer, read_float, read_char, read_shortint, read_cints, read_fints, read_shortuint
+from .binarrays import write_char, write_integer, write_float, write_byte, write_shortint, write_cint, write_fint, write_shortuint
 from scipy import array
 
 mode_read = {

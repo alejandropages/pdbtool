@@ -1,4 +1,4 @@
-from pdbtool import pdbmolecule, ReadPDBfile
+from .pdbtool import pdbmolecule, ReadPDBfile
 from scipy import exp, sqrt, log, pi, fmod, array
 from scipy.special import erfc
 from scipy.optimize import fsolve
@@ -185,7 +185,7 @@ class ACreader(object):
     def _extra_items(self):
         return []
 
-from pdbminer import pdbase
+from .pdbminer import pdbase
 class atom_contact_pdbase(pdbase):
     tables = [('atom_contacts', ACreader(), '')]
     def process_code_rats(self, code, fpath, rats, rcutoff=4.0):

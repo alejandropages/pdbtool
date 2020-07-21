@@ -5,10 +5,10 @@ Includes pdbatom and pdbmolecule classes
 
 import gzip, urllib.request, os, random, math, sys, re, copy, logging, time
 
-import pdbnames, SpaceGroups
-from helper import progressbar
-from rotate import transform_list
-from tinertia import TInertia
+from . import pdbnames, SpaceGroups
+from .helper import progressbar
+from .rotate import transform_list
+from .tinertia import TInertia
 from scipy.linalg import eigh
 from scipy import   array, cos, sin, pi, radians, sqrt, dot, cross, \
                     randn, zeros, matrix, ones, floor, nonzero, \

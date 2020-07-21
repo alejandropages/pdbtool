@@ -18,7 +18,7 @@ args = parser.parse_args()
 import os, sys, sqlite3
 
 from pdbtool import get_model, get_ssrecords
-from .sstin_sqlite import sstin_dbase
+from sstin_sqlite import sstin_dbase
 
 if args.pdb:
     model = get_model(args.pdb).Extract('p_bb')

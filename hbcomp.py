@@ -24,8 +24,8 @@ parser.add_argument('-b', '--bondtype', default='all',
 parser.add_argument('--bbout',
                     help='Path to the output PDB file showing backbone differences as B-factors.')
 args = parser.parse_args()
-from pdbtool import ReadPDBfile as read_pdb_file
-from pdbtool import pdbmolecule
+from .pdbtool import ReadPDBfile as read_pdb_file
+from .pdbtool import pdbmolecule
 import aconts, sys
 model1 = read_pdb_file(args.model1)
 if model1 is None:
