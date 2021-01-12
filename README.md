@@ -66,7 +66,7 @@ Note: after you run this command, whenever you are in this directory, your pytho
 6. Finish setting up pdbtool environment:
 
 ```
-$ pyenv activate pdbtools
+$ pyenv activate pdbtool
 $ pip install --upgrade pip
 $ pip install scipy==1.4.1 matplotlib==3.0.3 lsq
 ```
